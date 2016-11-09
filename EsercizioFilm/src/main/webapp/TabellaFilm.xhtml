@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Tabella Film</title>
+	<h:outputStylesheet library="css" name="tabelle.css"/>
+</h:head>
+
+<h:body>
+
+	<h2>Tabella film</h2>
+
+	<h:dataTable value="#{fC.listaFilm}" var="tempFilm" 
+				 styleClass="demo-table"
+				 headerClass="demo-table-header"
+				 rowClasses="demo-table-odd-row, demo-table-even-row">
+
+		<h:column>
+			<f:facet name="header">Titolo Film</f:facet>
+			#{tempFilm.nomeFilm}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Data uscita</f:facet>
+			#{tempFilm.data}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Nome regista</f:facet>
+			#{tempFilm.nomeRegista}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Codice film</f:facet>
+			#{tempFilm.codiceFilm}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Genere film</f:facet>
+			#{tempFilm.genere}
+		</h:column>
+
+	</h:dataTable>
+
+
+
+
+</h:body>
+</html>

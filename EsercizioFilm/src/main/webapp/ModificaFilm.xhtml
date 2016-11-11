@@ -21,39 +21,52 @@
 <h1>Modifica Film</h1>
 
 Nome Film:<br/>
-<h:inputText 	id="nomeFilm" value="#{film.nomeFilm}" label="Titolo Film" 
+<h:inputText 	id="nomeFilm" 
+				value="#{film.nomeFilm}" 
+				label="Titolo Film" 
  				required="true" 
  			  	requiredMessage="Questo campo è obbligatorio" 
- 			  	validatorMessage="Lunghezza fino a 20 caratteri">
- <f:validateLength minimum="3" maximum="20"/>
+ 			  	validatorMessage="Lunghezza fino a 100 caratteri"
+ 			  	styleClass="demo-form">
+ <f:validateLength minimum="3" maximum="100"/>
  </h:inputText>
   <h:message for="nomeFilm" styleClass="colori"/>
  <br/>
+
 Data:<br/>
- <h:inputText 	id="data" value="#{film.data}" required="true" 
+ <h:inputText 	id="data" 
+ 				value="#{film.data}" 
+ 				required="true" 
  				converter="javax.faces.Integer"
- 				validatorMessage="Formato data xxxx compresa tra 1940-2017"> 
+ 				validatorMessage="Formato data xxxx compresa tra 1940-2017"
+ 				styleClass="demo-form"> 
  <f:validateLongRange minimum="1940" maximum="2016"></f:validateLongRange>
  </h:inputText>
  <h:message for="data" styleClass="colori"/><br/>
 
 Nome Regista:<br/>
-<h:inputText 	id="nRegista" value="#{film.nomeRegista}" label="Nome Regista" 
+<h:inputText 	id="nRegista" 
+				value="#{film.nomeRegista}" 
+				label="Nome Regista" 
  				required="true" 
  			  	requiredMessage="Questo campo è obbligatorio" 
- 			  	validatorMessage="Lunghezza fino a 20 caratteri">
+ 			  	validatorMessage="Lunghezza fino a 20 caratteri"
+ 			  	styleClass="demo-form">
  <f:validateLength minimum="3" maximum="20"/>
  </h:inputText>
  <h:message for="nRegista" styleClass="colori"/> <br/>
-Codice Film: <h:inputText 	id="codiceFilm" value="#{film.codiceFilm}" 
+
+Codice Film: <h:inputText 	id="codiceFilm" 
+							value="#{film.codiceFilm}" 
 							validator="#{film.validazioneCodiceFilm}" 
-							validatorMessage="Il codice deve iniziare con Mov" > 
+							validatorMessage="Il codice deve iniziare con Mov" 
+							styleClass="demo-form"> 
 </h:inputText>
 <h:message for="codiceFilm" styleClass="colori"/><br/>
+
 Genere: <h:selectOneMenu value="#{film.genere}">
 <f:selectItems value="#{film.generi}"></f:selectItems>
 </h:selectOneMenu><br/>
-
 
 <h:inputHidden value="#{film.id_film}"/>
 <h:commandButton value="Modifica" action="#{fC.aggiornaFilm(film)}" styleClass="demo-button" />
